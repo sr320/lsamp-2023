@@ -1,0 +1,183 @@
+# Differential response of oysters: polyploidy and enviornmental stress
+
+# Introduction
+
+This 10-week research internship will focus primarily on the study of
+Pacific oysters, specifically investigating how environmental stress
+factors and triploidy - the condition of having three sets of
+chromosomes - affect these bivalve mollusks. The Pacific oyster, a key
+species in marine ecosystems and global aquaculture, possesses a
+remarkable ability to adapt to a wide range of environmental conditions.
+However, the increasing stressors resulting from climate change, such as
+ocean acidification and temperature fluctuations, pose significant
+challenges to their survival and reproductive success. Furthermore, many
+Pacific oysters are deliberately bred to be triploid to enhance growth
+and survival rates. Throughout the internship, we will rigorously
+examine these interactions, employing a blend of laboratory
+experimentation and data analysis to explore these intricate dynamics.
+This research opportunity will provide a comprehensive understanding of
+the delicate balance between genetic variation, environmental stress,
+and survival in Pacific oysters, offering valuable insights for future
+conservation strategies and sustainable aquaculture practices.
+
+# Objectives
+
+- Document prior research that offers explanation of physiological
+  difference in triploid and diploid oysters
+
+- Characterize differential gene expression in triploid oysters compared
+  to diploid oysters in response to environmental stress.
+
+- Evaluated differences in gene copy number variation between diploid
+  and triploid oysters.
+
+# Work Plan
+
+## Week 1
+
+### Readings
+
+- Lab Culture @ <https://robertslab.github.io/resources/>
+
+- Review week 3-5 @
+  <https://sr320.github.io/course-fish274-2022/schedule/>
+
+- <https://www.biorxiv.org/content/10.1101/2023.03.02.530828v1>
+
+### Tasks
+
+Get familiar with GitHub, Slack, electronic labnotebook, Handbook.
+
+### Milestones
+
+Have oyster tanks set up
+
+------------------------------------------------------------------------
+
+## Week 2
+
+### Readings
+
+### Tasks
+
+### Milestones
+
+Run enviromental stress experiment and samples oysters.  
+Start copy number variation analysis. Confirm supplies in inventory
+
+------------------------------------------------------------------------
+
+## Week 3
+
+### Readings
+
+### Tasks
+
+### Milestones
+
+Extract RNA, make cDNA, select primers.
+
+------------------------------------------------------------------------
+
+## Week 4
+
+### Readings
+
+### Tasks
+
+### Milestones
+
+Run qPCR  
+Write Methods Section(s)
+
+------------------------------------------------------------------------
+
+## Week 5
+
+### Readings
+
+### Tasks
+
+### Milestones
+
+Write Results Section(s)
+
+------------------------------------------------------------------------
+
+## Week 6
+
+### Readings
+
+### Tasks
+
+### Milestones
+
+Write Discussion Section(s)
+
+------------------------------------------------------------------------
+
+## Week 7
+
+### Readings
+
+### Tasks
+
+### Milestones
+
+Write Discussion Section(s)
+
+------------------------------------------------------------------------
+
+## Week 8
+
+### Readings
+
+### Tasks
+
+### Milestones
+
+Write Introduction Section(s)  
+Draft Poster
+
+------------------------------------------------------------------------
+
+## Week 9
+
+### Readings
+
+### Tasks
+
+### Milestones
+
+Practice Presentation
+
+------------------------------------------------------------------------
+
+## Week 10
+
+### Readings
+
+### Tasks
+
+### Milestones
+
+Presentation
+
+------------------------------------------------------------------------
+
+### 
+
+# Expectations
+
+- Spend approximately 8 hours of effort a day on project
+
+- Follow
+
+- Meet minimally once a week with Mentor
+
+- Attend Weekly Lab meetings
+
+- Post in lab notebook on daily basis. This is meant as a journal /
+  documentation / plan activities.
+
+- Review communications in Slack.
