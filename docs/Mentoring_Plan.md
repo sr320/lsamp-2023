@@ -1,4 +1,4 @@
-# Differential response of oysters: polyploidy and enviornmental stress
+# Differential response of oysters: polyploidy and environmental stress
 
 # Introduction
 
@@ -28,8 +28,8 @@ conservation strategies and sustainable aquaculture practices.
 - Characterize differential gene expression in triploid oysters compared
   to diploid oysters in response to environmental stress.
 
-- Evaluated differences in gene copy number variation between diploid
-  and triploid oysters.
+- Evaluate differences in gene copy number variation between diploid and
+  triploid oysters.
 
 # Work Plan
 
@@ -47,6 +47,8 @@ conservation strategies and sustainable aquaculture practices.
 ### Tasks
 
 Get familiar with GitHub, Slack, electronic labnotebook, Handbook.
+
+Have experimental system established. Plan environmetal Stree
 
 ### Milestones
 
@@ -70,6 +72,8 @@ Start copy number variation analysis. Confirm supplies in inventory
 ## Week 3
 
 ### Readings
+
+Find 5 papers discussion physiology of triploid and oysters
 
 ### Tasks
 
@@ -164,8 +168,6 @@ Practice Presentation
 Presentation
 
 ------------------------------------------------------------------------
-
-### 
 
 # Expectations
 

@@ -1,5 +1,5 @@
 ---
-title: "Differential response of oysters: polyploidy and enviornmental stress"
+title: "Differential response of oysters: polyploidy and environmental stress"
 subtitle: "Mentoring Plan"
 format: gfm
 editor: visual
@@ -15,7 +15,7 @@ This 10-week research internship will focus primarily on the study of Pacific oy
 
 -   Characterize differential gene expression in triploid oysters compared to diploid oysters in response to environmental stress.
 
--   Evaluated differences in gene copy number variation between diploid and triploid oysters.
+-   Evaluate differences in gene copy number variation between diploid and triploid oysters.
 
 # Work Plan
 
@@ -34,6 +34,8 @@ This 10-week research internship will focus primarily on the study of Pacific oy
 
 Get familiar with GitHub, Slack, electronic labnotebook, Handbook.
 
+Have experimental system established. Plan environmetal Stree
+
 
 ### Milestones
 
@@ -45,7 +47,11 @@ Have oyster tanks set up
 
 ### Readings
 
+
 ### Tasks
+
+
+
 
 ### Milestones
 
@@ -58,6 +64,8 @@ Confirm supplies in inventory
 ## Week 3
 
 ### Readings
+
+Find 5 papers discussion physiology of triploid and oysters 
 
 ### Tasks
 
@@ -154,7 +162,7 @@ Presentation
 
 ------------------------------------------------------------------------
 
-### 
+
 
 # Expectations
 
