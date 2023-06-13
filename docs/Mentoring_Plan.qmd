@@ -1,0 +1,30 @@
+---
+title: "Differential response of oysters associated with polyploidy and enviornmental stress"
+subtitle: "Mentoring Plan"
+format: html
+editor: visual
+---
+
+## 
+
+Somethings you might want to include in your plan:
+
+-   Weekly journal entries, we will provide journals to students on the first day
+
+-   Students will need to submit a photo of themselves taking part in their research
+
+-   Students will need to create a poster and Abstract that they will present at the symposium
+
+    -   The Undergraduate Research Symposium will be taking place on Wednesday, August 16^th^. I will send more details about deadlines once I get that from URP
+
+# Introduction
+
+This 10-week research internship will focus primarily on the study of Pacific oysters, specifically investigating how environmental stress factors and triploidy - the condition of having three sets of chromosomes - affect these bivalve mollusks. The Pacific oyster, a key species in marine ecosystems and global aquaculture, possesses a remarkable ability to adapt to a wide range of environmental conditions. However, the increasing stressors resulting from climate change, such as ocean acidification and temperature fluctuations, pose significant challenges to their survival and reproductive success. Furthermore, many Pacific oysters are deliberately bred to be triploid to enhance growth and survival rates. Throughout the internship, we will rigorously examine these interactions, employing a blend of laboratory experimentation and data analysis to explore these intricate dynamics. This research opportunity will provide a comprehensive understanding of the delicate balance between genetic variation, environmental stress, and survival in Pacific oysters, offering valuable insights for future conservation strategies and sustainable aquaculture practices.
+
+# Objectives
+
+Document prior research that offeres explanation of physiological different in triploid and diploid oysters
+
+Characterize differential gene expression in triploid oysters compared to diploid oysters in response to environmental stress.
+
+Evaluated differences in gene copy number variation between diploid and triploid oysters.
