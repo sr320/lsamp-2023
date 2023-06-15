@@ -34,7 +34,7 @@ This 10-week research internship will focus primarily on the study of Pacific oy
 
 Get familiar with GitHub, Slack, electronic labnotebook, Handbook.
 
-Have experimental system established. Plan environmetal Stree
+Have experimental system established. Plan environmetal stress
 
 
 ### Milestones
