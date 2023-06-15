@@ -54,11 +54,13 @@ Maintain oysters
 
 Set-up repo for copy number variation analysis 
 
+Confirm supplies in inventory
+
 ### Milestones
 
 Run enviromental stress experiment and samples oysters.   
 Start copy number variation analysis.
-Confirm supplies in inventory
+
 
 ------------------------------------------------------------------------
 
