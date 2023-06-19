@@ -48,7 +48,7 @@ conservation strategies and sustainable aquaculture practices.
 
 Get familiar with GitHub, Slack, electronic labnotebook, Handbook.
 
-Have experimental system established. Plan environmetal Stree
+Have experimental system established. Plan environmetal stress
 
 ### Milestones
 
@@ -62,10 +62,16 @@ Have oyster tanks set up
 
 ### Tasks
 
+Maintain oysters
+
+Set-up repo for copy number variation analysis
+
+Confirm supplies in inventory
+
 ### Milestones
 
 Run enviromental stress experiment and samples oysters.  
-Start copy number variation analysis. Confirm supplies in inventory
+Start copy number variation analysis.
 
 ------------------------------------------------------------------------
 
@@ -77,9 +83,18 @@ Find 5 papers discussion physiology of triploid and oysters
 
 ### Tasks
 
+Write summary of papers in notebook and indicate how they relate to
+project
+
+Extract RNA
+
+Make cDNA
+
+select primers.
+
 ### Milestones
 
-Extract RNA, make cDNA, select primers.
+Obtain cDNA, order primers.
 
 ------------------------------------------------------------------------
 
@@ -173,8 +188,6 @@ Presentation
 
 - Spend approximately 8 hours of effort a day on project
 
-- Follow
-
 - Meet minimally once a week with Mentor
 
 - Attend Weekly Lab meetings
@@ -183,3 +196,18 @@ Presentation
   documentation / plan activities.
 
 - Review communications in Slack.
+
+# Timeline of Program
+
+- Friday, June 16th: Submit mentoring Plan to me.  
+- Tuesday, June 20th: First Day of Program
+- Wednesday, June 21st: First LSAMP Professional Development Session
+- Week of July 10th: I will check in with the students
+- Wednesday, August 2nd (estimate): If students need to have the LSAMP
+  program get their posters printed they will need to submit a draft.
+  LSAMP will create a group order through Health Sciences Printing
+  Services
+- Sunday, August 13th: Abstracts will be due
+- Wednesday, August 16th: Undergraduate Research Symposium where
+  students will present their research posters
+- Wednesday, August 16th: End of Program Celebration

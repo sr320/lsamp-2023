@@ -19,7 +19,6 @@ This 10-week research internship will focus primarily on the study of Pacific oy
 
 # Work Plan
 
-
 ## Week 1
 
 ### Readings
@@ -34,12 +33,11 @@ This 10-week research internship will focus primarily on the study of Pacific oy
 
 Get familiar with GitHub, Slack, electronic labnotebook, Handbook.
 
-Have experimental system established. Plan environmetal stress
-
+Have experimental system established. Plan environmental stress
 
 ### Milestones
 
-Have oyster tanks set up 
+Have oyster tanks set up
 
 ------------------------------------------------------------------------
 
@@ -47,20 +45,22 @@ Have oyster tanks set up
 
 ### Readings
 
+-   [Opportunities in Functional Genomics: A Primer on Lab and Computational Aspects](https://d.pr/f/ngmWkw)
+
+-   
 
 ### Tasks
 
 Maintain oysters
 
-Set-up repo for copy number variation analysis 
+Set-up repo for copy number variation analysis
 
 Confirm supplies in inventory
 
 ### Milestones
 
-Run enviromental stress experiment and samples oysters.   
+Run environmental stress experiment and samples oysters.\
 Start copy number variation analysis.
-
 
 ------------------------------------------------------------------------
 
@@ -68,21 +68,21 @@ Start copy number variation analysis.
 
 ### Readings
 
-Find 5 papers discussion physiology of triploid and oysters 
+Find 5 papers discussing physiology of triploid and oysters.
 
 ### Tasks
 
-Write summary of papers in notebook and indicate how they relate to project
+Write summary of two papers in notebook and indicate how they relate to project
 
 Extract RNA
 
-Make cDNA
+Order Primers
 
-select primers.
+Have initial CNV analysis done
 
 ### Milestones
 
-Obtain cDNA, order primers.
+Have RNA from experiment
 
 ------------------------------------------------------------------------
 
@@ -90,13 +90,17 @@ Obtain cDNA, order primers.
 
 ### Readings
 
+-   TBD
+
 ### Tasks
 
+Write summary of two papers found in week 3 in notebook and indicate how they relate to project
 
+Make cDNA, run test qPCR
 
 ### Milestones
 
-Run qPCR   
+Run qPCR\
 Write Methods Section(s)
 
 ------------------------------------------------------------------------
@@ -105,11 +109,19 @@ Write Methods Section(s)
 
 ### Readings
 
+-   TBD
+
 ### Tasks
 
+Run qPCR
 
+Functional annotation of CNV results
+
+Find 5 papers discussing physiology of copy number variation in marine inverebtrates
 
 ### Milestones
+
+Have preliminary results figure from
 
 Write Results Section(s)
 
@@ -119,7 +131,13 @@ Write Results Section(s)
 
 ### Readings
 
-### Tasks
+Read two papers on CNV found in Week 5
+
+Tasks
+
+Write summary of two CNV papers
+
+Create final figure for
 
 ### Milestones
 
@@ -137,7 +155,6 @@ Write Discussion Section(s)
 
 Write Discussion Section(s)
 
-
 ------------------------------------------------------------------------
 
 ## Week 8
@@ -148,7 +165,7 @@ Write Discussion Section(s)
 
 ### Milestones
 
-Write Introduction Section(s)   
+Write Introduction Section(s)\
 Draft Poster
 
 ------------------------------------------------------------------------
@@ -177,8 +194,6 @@ Presentation
 
 ------------------------------------------------------------------------
 
-
-
 # Expectations
 
 -   Spend approximately 8 hours of effort a day on project
@@ -191,15 +206,13 @@ Presentation
 
 -   Review communications in Slack.
 
-
-
 # Timeline of Program
 
-- Friday, June 16th: Submit mentoring Plan to me.  
-- Tuesday, June 20th: First Day of Program
-- Wednesday, June 21st: First LSAMP Professional Development Session
-- Week of July 10th: I will check in with the students
-- Wednesday, August 2nd (estimate): If students need to have the LSAMP program get their posters printed they will need to submit a draft. LSAMP will create a group order through Health Sciences Printing Services
-- Sunday, August 13th: Abstracts will be due
-- Wednesday, August 16th: Undergraduate Research Symposium where students will present their research posters
-- Wednesday, August 16th: End of Program Celebration 
+-   Friday, June 16th: Submit mentoring Plan to me.\
+-   Tuesday, June 20th: First Day of Program
+-   Wednesday, June 21st: First LSAMP Professional Development Session
+-   Week of July 10th: I will check in with the students
+-   Wednesday, August 2nd (estimate): If students need to have the LSAMP program get their posters printed they will need to submit a draft. LSAMP will create a group order through Health Sciences Printing Services
+-   Sunday, August 13th: Abstracts will be due
+-   Wednesday, August 16th: Undergraduate Research Symposium where students will present their research posters
+-   Wednesday, August 16th: End of Program Celebration
