@@ -137,7 +137,7 @@ Tasks
 
 Write summary of two CNV papers
 
-Create final figure for
+Create final figure for qPCR
 
 ### Milestones
 
@@ -149,7 +149,13 @@ Write Discussion Section(s)
 
 ### Readings
 
+Read two papers on CNV found in Week 5
+
 ### Tasks
+
+Write summary of two CNV papers
+
+Identify 3-4 key points related to results of both efforts - start Discusssion.
 
 ### Milestones
 
@@ -161,7 +167,13 @@ Write Discussion Section(s)
 
 ### Readings
 
+TBD
+
 ### Tasks
+
+Present results to lab group for feedback
+
+Write Introduction
 
 ### Milestones
 
@@ -174,7 +186,11 @@ Draft Poster
 
 ### Readings
 
+TBD
+
 ### Tasks
+
+TBD
 
 ### Milestones
 
@@ -186,7 +202,11 @@ Practice Presentation
 
 ### Readings
 
+TBD
+
 ### Tasks
+
+Ensure all data and products are archived, metadata is accurate.
 
 ### Milestones
 

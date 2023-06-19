@@ -48,7 +48,7 @@ conservation strategies and sustainable aquaculture practices.
 
 Get familiar with GitHub, Slack, electronic labnotebook, Handbook.
 
-Have experimental system established. Plan environmetal stress
+Have experimental system established. Plan environmental stress
 
 ### Milestones
 
@@ -60,6 +60,11 @@ Have oyster tanks set up
 
 ### Readings
 
+- [Opportunities in Functional Genomics: A Primer on Lab and
+  Computational Aspects](https://d.pr/f/ngmWkw)
+
+- 
+
 ### Tasks
 
 Maintain oysters
@@ -70,7 +75,7 @@ Confirm supplies in inventory
 
 ### Milestones
 
-Run enviromental stress experiment and samples oysters.  
+Run environmental stress experiment and samples oysters.  
 Start copy number variation analysis.
 
 ------------------------------------------------------------------------
@@ -79,22 +84,22 @@ Start copy number variation analysis.
 
 ### Readings
 
-Find 5 papers discussion physiology of triploid and oysters
+Find 5 papers discussing physiology of triploid and oysters.
 
 ### Tasks
 
-Write summary of papers in notebook and indicate how they relate to
+Write summary of two papers in notebook and indicate how they relate to
 project
 
 Extract RNA
 
-Make cDNA
+Order Primers
 
-select primers.
+Have initial CNV analysis done
 
 ### Milestones
 
-Obtain cDNA, order primers.
+Have RNA from experiment
 
 ------------------------------------------------------------------------
 
@@ -102,7 +107,14 @@ Obtain cDNA, order primers.
 
 ### Readings
 
+- TBD
+
 ### Tasks
+
+Write summary of two papers found in week 3 in notebook and indicate how
+they relate to project
+
+Make cDNA, run test qPCR
 
 ### Milestones
 
@@ -115,9 +127,20 @@ Write Methods Section(s)
 
 ### Readings
 
+- TBD
+
 ### Tasks
 
+Run qPCR
+
+Functional annotation of CNV results
+
+Find 5 papers discussing physiology of copy number variation in marine
+inverebtrates
+
 ### Milestones
+
+Have preliminary results figure from
 
 Write Results Section(s)
 
@@ -127,7 +150,13 @@ Write Results Section(s)
 
 ### Readings
 
-### Tasks
+Read two papers on CNV found in Week 5
+
+Tasks
+
+Write summary of two CNV papers
+
+Create final figure for qPCR
 
 ### Milestones
 
@@ -139,7 +168,14 @@ Write Discussion Section(s)
 
 ### Readings
 
+Read two papers on CNV found in Week 5
+
 ### Tasks
+
+Write summary of two CNV papers
+
+Identify 3-4 key points related to results of both efforts - start
+Discusssion.
 
 ### Milestones
 
@@ -151,7 +187,13 @@ Write Discussion Section(s)
 
 ### Readings
 
+TBD
+
 ### Tasks
+
+Present results to lab group for feedback
+
+Write Introduction
 
 ### Milestones
 
@@ -164,7 +206,11 @@ Draft Poster
 
 ### Readings
 
+TBD
+
 ### Tasks
+
+TBD
 
 ### Milestones
 
@@ -176,7 +222,11 @@ Practice Presentation
 
 ### Readings
 
+TBD
+
 ### Tasks
+
+Ensure all data and products are archived, metadata is accurate.
 
 ### Milestones
 
