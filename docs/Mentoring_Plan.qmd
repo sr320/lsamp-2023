@@ -220,6 +220,8 @@ Presentation
 
 -   Meet minimally once a week with Mentor
 
+-   Ask Mentor / lab members questions all the time.
+
 -   Attend Weekly Lab meetings
 
 -   Post in lab notebook on daily basis. This is meant as a journal / documentation / plan activities.
