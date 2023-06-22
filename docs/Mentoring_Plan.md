@@ -67,6 +67,10 @@ Have oyster tanks set up
 
 ### Tasks
 
+Write up summary of reading in notebook - be sure to hightlight most
+interesting aspects and areas that could be better explain. Find a/the
+paper that cites it.
+
 Maintain oysters
 
 Set-up repo for copy number variation analysis
@@ -75,8 +79,8 @@ Confirm supplies in inventory
 
 ### Milestones
 
-Run environmental stress experiment and samples oysters.  
-Start copy number variation analysis.
+Run environmental stress experiment Start copy number variation
+analysis.
 
 ------------------------------------------------------------------------
 
@@ -90,6 +94,8 @@ Find 5 papers discussing physiology of triploid and oysters.
 
 Write summary of two papers in notebook and indicate how they relate to
 project
+
+Sample oysters
 
 Extract RNA
 
