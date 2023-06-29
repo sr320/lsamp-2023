@@ -1,0 +1,32 @@
+---
+title: "CNV data"
+output: html_document
+date: "2023-06-29"
+---
+
+
+We have whole genome sequence data from diploids and triploids and want to see if gene copy number varies, specifically rRNA genes.
+
+Reference genome - Pacific oyster, _Crassostrea gigas_
+
+
+```{bash}
+cd ../data
+
+curl -O https://gannet.fish.washington.edu/panopea/Cg-roslin/cgigas_uk_roslin_v1_genomic-mito.fa
+```
+
+
+Get sequence files for individual oysters...
+
+
+
+
+
+
+
+# Align individual files to genome.
+
+
+
+
