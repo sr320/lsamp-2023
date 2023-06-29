@@ -1,0 +1,16 @@
+---
+title: "oyster-size"
+output: html_document
+date: "2023-06-29"
+---
+
+We have size data from oysters at start of experiment - lets make a plot.
+
+
+```{r}
+
+size <- read.csv()
+
+
+```
+
