@@ -1,9 +1,18 @@
-Oyster #,Tumbled Group Length ,Oyster #,Non-Tumbled Group Length 
-1-T,115.5 mm,1-NT,119 mm
-2-T,98 mm,2-NT,110 mm
-3-T,137 mm,3-NT,112 mm
-4-T,112 mm,4-NT,114 mm 
-5-T,150.5 mm,5-NT,98 mm
-6-T,148 mm,6-NT,106 mm
-7-T,103 mm,7-NT,115.5 mm
-8-T,79 mm,8-NT,121 mm
+Oyster, Length, history
+1-T,115.5, t
+2-T,98, t
+3-T,137, t
+4-T,112, t
+5-T,150.5, t
+6-T,148, t
+7-T,103, t
+8-T,79, t
+1-NT,119, n
+2-NT,110, n
+3-NT,112, n
+4-NT,114, n 
+5-NT,98, n
+6-NT,106, n
+7-NT,115.5, n
+8-NT,121, n
+1-NT,119, n
