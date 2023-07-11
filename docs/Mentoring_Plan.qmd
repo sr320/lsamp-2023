@@ -61,8 +61,7 @@ Confirm supplies in inventory
 
 ### Milestones
 
-Run environmental stress experiment 
-Start copy number variation analysis.
+Run environmental stress experiment Start copy number variation analysis.
 
 ------------------------------------------------------------------------
 
