@@ -1,17 +1,17 @@
-Oytser-Identifier,Length(mm),Sex
-TM1,151,F,t
-TM2,138,M,t
-NTM1,110,M,nt
-NTM2,122,F,nt
-TH1,78,M,t
-TH2,104,M,t
-NTH1,96,M,nt
-NTH2,104,F,nt
-THM1,154,F,t
-THM2,115,F,t
-NTHM1,114,F,nt
-NTHM2,109,M,nt
-TC1,115,M,t
-TC2,95,M,t
-NTC1,103,F,nt
-NTC2,121,M,nt
+Length, Sex, group, subgroup
+151, Fe, t, M
+138, Ma, t, M
+110, Ma, nt, M
+122, Fe, nt, M
+78, Ma, t, H
+104, Ma, t, H
+96, Ma, nt, H
+104, Fe, nt, H
+154, Fe, t, HM
+115, Fe, t, HM
+114, Fe, nt, HM
+109, Ma, nt, HM
+115, Ma, t, C
+95, Ma, t, C
+103, Fe, nt, C
+121, Ma, nt, C

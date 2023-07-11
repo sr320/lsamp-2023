@@ -33,4 +33,19 @@ ggplot(data = init, mapping = aes(x = history, y = Length)) +
   geom_boxplot()
 
 ```
+```{r}
+oysdata <- read.csv("../data/sampling-data.csv", header = TRUE)
+```
+```{r}
+ggplot(data = oysdata, mapping = aes(x = Sex, y = Length)) + 
+  geom_boxplot()
+```
+```{r}
+ggplot(data = oysdata, mapping = aes(x = group, y = Length)) + 
+  geom_boxplot()
+```
+```{r}
+ggplot(data = oysdata, mapping = aes(x = subgroup, y = Length)) + 
+  geom_boxplot()
+```
 
