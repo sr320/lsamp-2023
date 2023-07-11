@@ -50,30 +50,9 @@ find *_R1_001_fastq.gz | xargs basename -s _R1_001_fastq.gz \
 find *.sam | \
 xargs basename -s .sam | \
 xargs -I{} /gscratch/srlab/programs/samtools-1.9/ \
+view -bS {}.sam | \
 sort --threads 28 {}.bam \
 -o {}.sorted.bam
 
-samtools view -bS alignment.sam | samtools sort -o sorted_alignment.bam
 
 
-/gscratch/srlab/programs/samtools-1.9/samtools merge \
-Pg_merged.bam \
-*.sorted.bam
-
-
-perl /gscratch/srlab/programs/BS-Snper-master/BS-Snper.pl \
-Pg_merged.bam \
---fa Panopea-generosa-v1.0.fa \
---output snp.candidate.out \
---methcg meth.cg \
---methchg meth.chg \
---methchh meth.chh \
---minhetfreq 0.1 \
---minhomfreq 0.85 \
---minquali 15 \
---mincover 10 \
---maxcover 1000 \
---minread2 2 \
---errorate 0.02 \
---mapvalue 20 \
->SNP.vcf 2>SNP.log
