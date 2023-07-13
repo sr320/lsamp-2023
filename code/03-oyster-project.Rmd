@@ -52,4 +52,8 @@ ggplot(data = oysdata, mapping = aes(x = subgroup, y = Length)) +
 ggplot(data = oysdata, mapping = aes(y = Length)) + 
   geom_bar()
 ```
+```{r}
+ggplot(data = oysdata, mapping = aes(x = Individual, y = Length)) + 
+  geom_boxplot()
+```
 
