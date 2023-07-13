@@ -2,7 +2,7 @@
 title: "oyster project 1"
 author: "Noah Krebs"
 date: "2023-07-07"
-output: html_document
+output: github_document
 ---
 
 
