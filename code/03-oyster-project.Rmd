@@ -10,7 +10,7 @@ I want to graph intitial size data.
 
 
 ```{r}
-library(tidyverse
+library(tidyverse)
 ```
 
 REad in data

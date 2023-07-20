@@ -21,3 +21,12 @@ qPCR_B <- read.csv("../data/qPCR-data-2-20.csv", header = TRUE)
 
 ```
 
+```{r}
+ggplot(data = qPCR_A, mapping = aes(x = Subgroup, y = CqMean)) + 
+  geom_boxplot()
+```
+```{r}
+ggplot(data = qPCR_A, mapping = aes(x = Subgroup1, y = CqMean1)) + 
+  geom_boxplot()
+```
+
