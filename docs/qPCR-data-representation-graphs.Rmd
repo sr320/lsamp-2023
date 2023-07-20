@@ -1,0 +1,23 @@
+---
+title: "qPCR_data_representation"
+author: "Noah Krebs"
+date: "2023-07-20"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+        
+```
+
+```{r}
+qPCR_A <- read.csv("../data/qPCRdata-1.csv", header = TRUE)
+
+
+```
+
+```{r}
+qPCR_B <- read.csv("../data/qPCR-data-2-20.csv", header = TRUE)
+
+```
+
