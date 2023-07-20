@@ -29,4 +29,8 @@ ggplot(data = qPCR_A, mapping = aes(x = Subgroup, y = CqMean)) +
 ggplot(data = qPCR_A, mapping = aes(x = Subgroup1, y = CqMean1)) + 
   geom_boxplot()
 ```
+```{r}
+ggplot(data = qPCR_B, mapping = aes(x = Subgroup, y = CqMean)) + 
+  geom_boxplot()
+```
 
