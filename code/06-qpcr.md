@@ -17,13 +17,15 @@ library(tidyverse)
     ## ✖ dplyr::lag()    masks stats::lag()
     ## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 
+Converted Cq value to aev with: =10^(-(0.3012 \* E2) + 11.434)
+
 ``` r
 qpcr <- read.csv("../data/SR-qpcr-data-1.csv", header = TRUE) 
 ```
 
 ``` r
 ggplot(data = qpcr, mapping = aes(x = Subgroup, y = CqMean)) + 
-  geom_boxplot() +
+  geom_boxplot()  +
   facet_wrap('Target')
 ```
 
@@ -43,9 +45,9 @@ ggplot(data = qpcr, mapping = aes(x = Subgroup, y = aev)) +
 
 ``` r
 qpcr %>%
-  filter(Target == "Cg_18s(1408/9)")  %>%
+  filter(Target == "Cg_18s(1408/9)") %>%
 ggplot(mapping = aes(x = Subgroup, y = aev)) + 
-  geom_boxplot() +
+  geom_boxplot()  +
   geom_jitter(aes(color = history), width = 0.1, alpha = 0.7)
 ```
 
