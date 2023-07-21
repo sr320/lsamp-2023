@@ -8,11 +8,38 @@ output: html_document
 library(tidyverse)
 
 
-
 ```
 
 
 ```{r}
-qpcr <- read.csv("../data/qPCR-data-2-21.csv", header = TRUE)
+qpcrd <- read.csv("../lsamp-2023/data/qPCR-data-2-21.csv", header = TRUE)
+```
+
+```{r}
+ggplot(data = qpcrd, mapping = aes(x = Subgroup, y = CqMean)) + 
+  geom_boxplot() +
+  facet_wrap('Target') +
+  coord_cartesian(ylim = c(10, 40))
+```
+```{r}
+qpcrd %>%
+  filter(Target == "Cg_HSP70(598/9)") %>%
+ggplot(mapping = aes(x = Subgroup, y = CqMean)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+```{r}
+qpcrd %>%
+  filter(Target == "Cg_HSP90(1532/3)") %>%
+ggplot(mapping = aes(x = Subgroup, y = CqMean)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+```{r}
+qpcrd %>%
+  filter(Target == "Cg_VIPERIN(1828/9)") %>%
+ggplot(mapping = aes(x = Subgroup, y = CqMean)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
 ```
 

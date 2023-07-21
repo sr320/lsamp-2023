@@ -19,10 +19,10 @@ qpcr <- read.csv("../data/SR-qpcr-data-1.csv", header = TRUE)
 
 
 ```{r}
-
 ggplot(data = qpcr, mapping = aes(x = Subgroup, y = CqMean)) + 
-  geom_boxplot()  +
+  geom_boxplot() +
   facet_wrap('Target')
+
 
 ```
 
