@@ -1,0 +1,18 @@
+---
+title: "qPCR-data-7/21"
+author: "Noah Krebs"
+date: "2023-07-21"
+output: html_document
+---
+```{r}
+library(tidyverse)
+
+
+
+```
+
+
+```{r}
+qpcr <- read.csv("../data/qPCR-data-2-21.csv", header = TRUE)
+```
+
