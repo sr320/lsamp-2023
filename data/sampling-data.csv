@@ -1,17 +1,17 @@
-Length, Sex, group, subgroup
-151, Fe, t, M
-138, Ma, t, M
-110, Ma, nt, M
-122, Fe, nt, M
-78, Ma, t, H
-104, Ma, t, H
-96, Ma, nt, H
-104, Fe, nt, H
-154, Fe, t, HM
-115, Fe, t, HM
-114, Fe, nt, HM
-109, Ma, nt, HM
-115, Ma, t, C
-95, Ma, t, C
-103, Fe, nt, C
-121, Ma, nt, C
+Length, Sex, group, subgroup, Individual
+151, Fe, t, M, TM1
+138, Ma, t, M, TM2
+110, Ma, nt, M, NTM1
+122, Fe, nt, M, NTM2
+78, Ma, t, H, TH1
+104, Ma, t, H, TH2
+96, Ma, nt, H, NTH1
+104, Fe, nt, H, NTH2
+154, Fe, t, HM, THM1
+115, Fe, t, HM, THM2
+114, Fe, nt, HM, NTHM1
+109, Ma, nt, HM, NTHM2
+115, Ma, t, C, TC1
+95, Ma, t, C, TC2
+103, Fe, nt, C, NTC1
+121, Ma, nt, C, NTC2

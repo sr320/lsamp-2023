@@ -1,0 +1,36 @@
+---
+title: "qPCR_data_representation"
+author: "Noah Krebs"
+date: "2023-07-20"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+        
+```
+
+```{r}
+qPCR_A <- read.csv("../data/qPCRdata-1.csv", header = TRUE)
+
+
+```
+
+```{r}
+qPCR_B <- read.csv("../data/qPCR-data-2-20.csv", header = TRUE)
+
+```
+
+```{r}
+ggplot(data = qPCR_A, mapping = aes(x = Subgroup, y = CqMean)) + 
+  geom_boxplot()
+```
+```{r}
+ggplot(data = qPCR_A, mapping = aes(x = Subgroup1, y = CqMean1)) + 
+  geom_boxplot()
+```
+```{r}
+ggplot(data = qPCR_B, mapping = aes(x = Subgroup, y = CqMean)) + 
+  geom_boxplot()
+```
+

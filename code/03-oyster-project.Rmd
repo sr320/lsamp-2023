@@ -2,7 +2,7 @@
 title: "oyster project 1"
 author: "Noah Krebs"
 date: "2023-07-07"
-output: html_document
+output: github_document
 ---
 
 
@@ -51,5 +51,9 @@ ggplot(data = oysdata, mapping = aes(x = subgroup, y = Length)) +
 ```{r}
 ggplot(data = oysdata, mapping = aes(y = Length)) + 
   geom_bar()
+```
+```{r}
+ggplot(data = oysdata, mapping = aes(x = Individual, y = Length)) + 
+  geom_boxplot()
 ```
 

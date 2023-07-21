@@ -19,8 +19,12 @@ curl -O https://gannet.fish.washington.edu/panopea/Cg-roslin/cgigas_uk_roslin_v1
 
 Get sequence files for individual oysters...
 
-
-
+```{bash}
+wget -r \
+--no-directories --no-parent \
+-P ../data \
+-A "fastq" https://gannet.fish.washington.edu/seashell/bu-github/USDA-NRSP-8-gigas-rDNA/data/trim-merge/
+```
 
 
 
