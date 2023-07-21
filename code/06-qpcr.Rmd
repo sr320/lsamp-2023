@@ -33,7 +33,8 @@ ggplot(data = qpcr, mapping = aes(x = Subgroup, y = CqMean)) +
 
 ggplot(data = qpcr, mapping = aes(x = Subgroup, y = aev)) + 
   geom_boxplot() +
-  facet_wrap('Target')
+  facet_wrap('Target') +
+  coord_cartesian(ylim = c(1000, 175000))
 
 ```
 
