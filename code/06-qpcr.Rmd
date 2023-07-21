@@ -1,6 +1,8 @@
 ---
 title: "qPCR"
-output: github_document
+output:
+  pdf_document: default
+  html_document: default
 date: "2023-07-21"
 ---
 
