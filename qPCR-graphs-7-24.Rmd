@@ -4,3 +4,10 @@ author: "Noah Krebs"
 date: "2023-07-24"
 output: html_document
 ---
+```{r}
+library(tidyverse)
+
+
+qpcrm <- read.csv("../lsamp-2023/data/qPCR-data-7-24.csv", header = TRUE)
+```
+
