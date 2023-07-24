@@ -1,6 +1,6 @@
 ---
 title: "CNV data"
-output: html_document
+output: github_document
 date: "2023-06-29"
 ---
 
@@ -25,12 +25,46 @@ wget -r \
 -P ../data \
 -A "fastq" https://gannet.fish.washington.edu/seashell/bu-github/USDA-NRSP-8-gigas-rDNA/data/trim-merge/
 ```
+```{bash}
+wget -r \
+--no-directories --no-parent \
+-P ../data \
+-A "F*gz" \
+http://owl.fish.washington.edu/nightingales/C_gigas/
+```
 
 
 
 
 # Align individual files to genome.
 
+Index genome
+
+```{bash}
+/home/shared/bowtie2-2.4.4-linux-x86_64/bowtie2-build \
+../data/cgigas_uk_roslin_v1_genomic-mito.fa \
+../data/cgigas_uk_roslin_v1_genomic-mito.index
+```
+```{bash}
+find ../data/*_R1_001.fastq.gz | xargs basename -s _R1_001.fastq.gz | head
+```
 
 
+```{bash}
+find ../data/*_R1_001.fastq.gz | xargs basename -s _R1_001.fastq.gz \
+| xargs -I{} /home/shared/bowtie2-2.4.4-linux-x86_64/bowtie2 \
+-x ../data/cgigas_uk_roslin_v1_genomic-mito.index \
+-1 ../data/{}_R1_001.fastq.gz \
+-2 ../data/{}_R2_001.fastq.gz \
+-p 40 \
+-S ../output/{}.sam
+```
+
+
+find *.sam | \
+xargs basename -s .sam | \
+xargs -I{} /gscratch/srlab/programs/samtools-1.9/ \
+view -bS {}.sam | \
+sort --threads 28 {}.bam \
+-o {}.sorted.bam
 
