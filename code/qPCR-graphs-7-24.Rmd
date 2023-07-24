@@ -7,7 +7,42 @@ output: html_document
 ```{r}
 library(tidyverse)
 
+qpcrm <- read.csv("../data/qPCR-data-7-24-1.csv", header = TRUE)
 
-qpcrm <- read.csv("../lsamp-2023/data/qPCR-data-7-24.csv", header = TRUE)
+```
+
+```{r}
+ggplot(data = qpcrm, mapping = aes(x = Subgroup, y = CqMean)) +   geom_boxplot() +
+  facet_wrap('Target') +
+  coord_cartesian(ylim = c(0, 45))
+
+```
+```{r}
+qpcrm %>%
+  filter(Target == "Cg_18s(1408/9)") %>%
+ggplot(mapping = aes(x = Subgroup, y = CqMean)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+```{r}
+qpcrm %>%
+  filter(Target == "Cg_Actin(1170/1)") %>%
+ggplot(mapping = aes(x = Subgroup, y = CqMean)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+```{r}
+qpcrm %>%
+  filter(Target == "Cg_Def(1160/1)") %>%
+ggplot(mapping = aes(x = Subgroup, y = CqMean)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+```{r}
+qpcrm %>%
+  filter(Target == "IL-17_internal(256/7)") %>%
+ggplot(mapping = aes(x = Subgroup, y = CqMean)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
 ```
 

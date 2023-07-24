@@ -16,8 +16,7 @@ qpcrd <- read.csv("../lsamp-2023/data/qPCR-data-2-21.csv", header = TRUE)
 ```
 
 ```{r}
-ggplot(data = qpcrd, mapping = aes(x = Subgroup, y = CqMean)) + 
-  geom_boxplot() +
+ggplot(data = qpcrd, mapping = aes(x = Subgroup, y = CqMean)) +   geom_boxplot() +
   facet_wrap('Target') +
   coord_cartesian(ylim = c(10, 40))
 ```
