@@ -2,7 +2,9 @@
 title: "qPCR-graphs-7-24"
 author: "Noah Krebs"
 date: "2023-07-24"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 ```{r}
 library(tidyverse)
