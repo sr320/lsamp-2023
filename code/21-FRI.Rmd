@@ -7,8 +7,19 @@ output:
   html_document: default
 ---
 ```{r}
-library(tidyverse)
 
+install.packages('tinytex')
+tinytex::install_tinytex()
+contrib.url(repos, type)
+
+
+
+
+
+
+```
+```{r}
+library(tidyverse)
 
 ```
 
