@@ -3,14 +3,13 @@ title: "qPCR-data-7/21"
 author: "Noah Krebs"
 date: "2023-07-21"
 output:
-  pdf_document: default
+  word_document: default
   html_document: default
+  pdf_document: default
 ---
 ```{r}
 
-install.packages('tinytex')
-tinytex::install_tinytex()
-contrib.url(repos, type)
+
 
 
 

@@ -3,11 +3,13 @@ title: "qPCR-graphs-7-24"
 author: "Noah Krebs"
 date: "2023-07-24"
 output:
-  pdf_document: default
+  word_document: default
   html_document: default
+  pdf_document: default
 ---
 ```{r}
 library(tidyverse)
+
 
 qpcrm <- read.csv("../data/qPCR-data-7-24-1.csv", header = TRUE)
 
