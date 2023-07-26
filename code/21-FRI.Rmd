@@ -2,22 +2,33 @@
 title: "qPCR-data-7/21"
 author: "Noah Krebs"
 date: "2023-07-21"
-output: html_document
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
 ---
+```{r}
+
+
+
+
+
+
+
+
+```
 ```{r}
 library(tidyverse)
 
-
 ```
 
 
 ```{r}
-qpcrd <- read.csv("../lsamp-2023/data/qPCR-data-2-21.csv", header = TRUE)
+qpcrd <- read.csv("../data/qPCR-data-2-21.csv", header = TRUE)
 ```
 
 ```{r}
-ggplot(data = qpcrd, mapping = aes(x = Subgroup, y = CqMean)) + 
-  geom_boxplot() +
+ggplot(data = qpcrd, mapping = aes(x = Subgroup, y = CqMean)) +   geom_boxplot() +
   facet_wrap('Target') +
   coord_cartesian(ylim = c(10, 40))
 ```
