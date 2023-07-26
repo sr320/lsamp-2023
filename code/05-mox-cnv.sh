@@ -72,6 +72,11 @@ do
     /gscratch/srlab/programs/bedtools-2.27.1/bin/bedtools genomecov -ibam "$f" -bg > "$base.bedgraph"
 done
 
+
+
+
+
+
 for f in *bedgraph
 do
     base=$(basename "$f" .bedgraph)

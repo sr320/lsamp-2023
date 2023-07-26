@@ -3,3 +3,83 @@ title: "cnv coverage"
 output: html_document
 date: "2023-07-26"
 ---
+
+Lets get begraphs 
+
+example 
+https://gannet.fish.washington.edu/seashell/bu-mox/scrubbed/071623-cnv/F052n01.bedgraph
+
+
+```{bash}
+wget -r \
+--no-directories --no-parent \
+-P ../data/ \
+-A "*.bedgraph" https://gannet.fish.washington.edu/seashell/bu-mox/scrubbed/071623-cnv/
+
+```
+
+
+```{bash}
+cd ../data
+
+curl -O https://gannet.fish.washington.edu/seashell/bu-mox/scrubbed/071623-cnv/cgigas_uk_roslin_v1_gene.gff
+```
+
+```{bash}
+
+for f in ../data/*bedgraph
+do
+    echo "$f"
+done
+```
+
+```{bash}
+
+for f in ../data/*bedgraph
+do
+    base=$(basename "$f" .bedgraph)
+    /home/shared/bedtools2/bin/bedtools coverage -hist -a ../data/cgigas_uk_roslin_v1_gene.gff -b "$f" > "../output/$base.coverage.txt"
+done
+```
+not liking this - lets grab sorted bams...
+
+```{bash}
+wget -r \
+--no-directories --no-parent \
+-P ../data/ \
+-A "*sorted.bam" https://gannet.fish.washington.edu/seashell/bu-mox/scrubbed/071623-cnv/
+
+```
+
+```{bash}
+
+for f in ../data/*bam
+do
+    echo "$f"
+done
+```
+
+
+
+```{bash}
+
+for f in ../data/*bam
+do
+    base=$(basename "$f" .sorted.bam)
+    /home/shared/bedtools2/bin/bedtools coverage -hist -a ../data/cgigas_uk_roslin_v1_gene.gff -b "$f" > "../output/$base.coverage.txt"
+done
+```
+
+
+```{bash}
+tail ../output/F142n04.coverage.txt
+```
+
+
+```{r}
+
+# Calculate read depths using 'samtools depth'
+samtools depth -b targets.bed sample1.bam sample2.bam > read_depths.txt
+
+```
+
