@@ -83,3 +83,438 @@ samtools depth -b targets.bed sample1.bam sample2.bam > read_depths.txt
 
 ```
 
+
+```{bash}
+cd ../data
+
+curl -O http://owl.fish.washington.edu/halfshell/genomic-databank/cgigas_uk_roslin_v1_rm.te.bed
+```
+
+
+```{bash}
+
+for f in ../data/*bam
+do
+    base=$(basename "$f" .sorted.bam)
+    /home/shared/samtools-1.12/samtools depth -b ../output/cgigas_uk_roslin_v1_gene.bed "$f" > "../output/$base.depth.txt"
+done
+```
+
+```{bash}
+head ../data/cgigas_uk_roslin_v1_gene.gff
+/home/shared/bedtools2/bin/bedtools bamtobed -i ../data/cgigas_uk_roslin_v1_gene.gff > ../output/cgigas_uk_roslin_v1_gene.bed
+```
+
+
+
+```{bash}
+awk 'OFS="\t" {print $1,$4-1,$5,$9,$6,$7}' ../data/cgigas_uk_roslin_v1_gene.gff > ../output/cgigas_uk_roslin_v1_gene.bed
+
+head ../output/cgigas_uk_roslin_v1_gene.bed
+
+```
+
+```{bash}
+awk 'BEGIN {OFS=FS="\t"} {sub(/:.*/, "", $4); print}' ../output/cgigas_uk_roslin_v1_gene.bed | sed 's/;Dbxref=GeneID//g' > ../output/cgigas_uk_roslin_v1_gene2.bed
+
+```
+
+```{bash}
+
+# Calculate read depths using 'samtools depth'
+/home/shared/samtools-1.12/samtools depth -b ../output/cgigas_uk_roslin_v1_gene2.bed ../data/F052n01.sorted.bam > ../output/F052n01_depths.txt
+
+```
+
+
+```{bash}
+head ../output/F052n01_depths.txt
+```
+
+
+```{bash}
+/home/shared/bedtools2/bin/bedtools coverage -counts -a ../output/cgigas_uk_roslin_v1_gene2.bed -b ../data/F052n01.bedgraph > ../output/F052n01.coverage.txt
+```
+
+```{bash}
+head -100 ../output/F052n01.coverage.txt
+```
+
+
+```{bash}
+
+for f in ../data/*bedgraph
+do
+    base=$(basename "$f" .bedgraph)
+    /home/shared/bedtools2/bin/bedtools coverage -counts -a ../output/cgigas_uk_roslin_v1_gene2.bed -b "$f" > "../output/$base.coverage.txt"
+done
+```
+
+
+
+```{bash}
+head ../output/*coverage*
+
+```
+
+
+
+
+```{bash}
+python3 
+import pandas as pd
+import glob
+
+# Use glob to match the pattern 'F*.coverage.txt'
+files = glob.glob('../output/F*.coverage.txt')
+
+# Create an empty DataFrame
+all_data = pd.DataFrame()
+
+for file in files:
+    # Read each file into a DataFrame
+    df = pd.read_csv(file, sep='\t', header=None)
+    
+    # Add a new column with the filename
+    filename = file.split('/')[-1]  # Get just the filename, not the full path
+    df['filename'] = filename
+    
+    # Append this data to all_data
+    all_data = all_data.append(df, ignore_index=True)
+
+# Write the result to a new file
+all_data.to_csv('merged_data.csv', index=False, sep='\t')
+
+```
+
+
+---
+title: "Non-target taxa"
+author: Steven Roberts
+date: "`r format(Sys.time(), '%d %B, %Y')`" 
+output: 
+  # github_document:
+  #   toc: true
+  #   toc_depth: 3
+  #   number_sections: true
+  #   html_preview: true
+  html_document:
+    theme: readable
+    highlight: zenburn
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(kableExtra)
+library(DESeq2)
+library(pheatmap)
+library(RColorBrewer)
+library(data.table)
+library(DT)
+library(formattable)
+library(Biostrings)
+library(spaa)
+knitr::opts_chunk$set(
+  echo = TRUE,         # Display code chunks
+  eval = FALSE,         # Evaluate code chunks
+  warning = FALSE,     # Hide warnings
+  message = FALSE,     # Hide messages
+  fig.width = 6,       # Set plot width in inches
+  fig.height = 4,      # Set plot height in inches
+  fig.align = "center" # Align plots to the center
+)
+```
+
+
+```{r, eval=TRUE}
+
+# specify the path to your files
+path <- "../output"
+
+
+# get all files in the directory
+files <- list.files(path, pattern = "*.coverage.txt", full.names = TRUE) 
+
+
+```
+
+
+```{r}
+# Load the required library (if not already installed)
+install.packages("data.table")
+library(data.table)
+
+# Set the directory where all the files are located
+input_directory <- "../output/"
+
+# Function to read each file and add a new column with the filename
+process_file <- function(file_path) {
+  df <- fread(file_path, sep="\t", header=FALSE)
+  filename <- basename(file_path)
+  df[, Original_Filename := filename]
+  return(df)
+}
+
+# Read and merge all the files
+all_dataframes <- list()
+file_list <- list.files(input_directory, pattern=".txt") # Adjust the pattern accordingly
+
+for (filename in file_list) {
+  file_path <- file.path(input_directory, filename)
+  df <- process_file(file_path)
+  all_dataframes <- c(all_dataframes, list(df))
+}
+
+merged_df <- rbindlist(all_dataframes)
+
+# Save the merged dataframe to a new file
+output_file <- "../output/merged_output.txt"
+fwrite(merged_df, file=output_file, sep="\t", quote=FALSE)
+```
+
+
+```{r, eval=TRUE}
+df <- files %>%
+  map_df(~{
+    read_tsv(.x, col_names = FALSE) %>%
+    set_names(c("phylum", "count")) %>%
+    mutate(sample = str_remove(basename(.x), ".coverage.txt"))  # remove the extension from the filename
+  })
+
+
+```
+
+
+
+
+
+```{r}
+# Install ExomeDepth if you haven't already
+install.packages("ExomeDepth")
+
+# Load the ExomeDepth library
+library(ExomeDepth)
+
+# Read BAM files and create a target data frame
+targets <- read.delim("../output/cgigas_uk_roslin_v1_gene2.bed", header = FALSE)
+samples <- c("../data/F052n01.sorted.bam", "../data/F052n07.sorted.bam")
+mydata <- exomedepth.createReference(samples, targets)
+
+# Calculate read depth ratios and perform CNV calling
+results <- exomedepth(mydata)
+
+# Plot the results
+plot(results)
+```
+
+
+
+```{r}
+# Set the directory path where your files are located
+directory_path <- "../output/"
+
+# Define the regular expression pattern to match your files
+file_pattern <- "F.*coverage\\.txt"
+
+# Get the list of files that match the pattern in the specified directory
+file_list <- list.files(path = directory_path, pattern = file_pattern, full.names = TRUE)
+
+# Function to read and merge files
+merge_files <- function(file_paths) {
+  # Initialize an empty data frame
+  merged_table <- data.frame()
+
+  # Loop through each file and merge it with the existing data
+  for (file_path in file_paths) {
+    # Read the file into a data frame
+    table <- read.table(file_path, header = FALSE, sep = "\t")
+    
+    # Assign column names to the data frame
+    colnames(table) <- c("Chr", "Start", "End", "ID", "Dot", "Strand", "Value")
+
+    # Merge the data frame with the existing data
+    merged_table <- rbind(merged_table, table)
+  }
+
+  # Return the final merged data frame
+  return(merged_table)
+}
+
+# Call the function to merge all the files
+merged_data <- merge_files(file_list)
+
+# Print the merged data frame
+print(merged_data)
+
+```
+```{r}
+# Set the directory path where your files are located
+directory_path <- "../output/"
+
+# Define the regular expression pattern to match your files
+file_pattern <- "F.*coverage\\.txt"
+
+# Get the list of files that match the pattern in the specified directory
+file_list <- list.files(path = directory_path, pattern = file_pattern, full.names = TRUE)
+
+# Function to read and merge files
+merge_files <- function(file_paths) {
+  # Initialize an empty data frame
+  merged_table <- data.frame()
+
+  # Loop through each file and merge it with the existing data
+  for (file_path in file_paths) {
+    # Read the file into a data frame
+    table <- read.table(file_path, header = FALSE, sep = "\t")
+    
+    # Assign column names to the data frame
+    colnames(table) <- c("Chr", "Start", "End", "ID", "Dot", "Strand", "Value")
+    
+    # Get the base filename without the extension
+    base_filename <- tools::file_path_sans_ext(basename(file_path))
+
+    # Add a new column with the base filename to the data frame
+    table$Filename <- base_filename
+
+    # Merge the data frame with the existing data
+    merged_table <- rbind(merged_table, table)
+  }
+
+  # Return the final merged data frame
+  return(merged_table)
+}
+
+# Call the function to merge all the files
+merged_data <- merge_files(file_list)
+
+# Print the merged data frame
+print(merged_data)
+
+```
+```{r}
+df <- merged_data %>% mutate(x = row_number())
+```
+
+```{r}
+covwide <- pivot_wider(merged_data, names_from = Filename, values_from = Value)
+
+```
+
+```{r}
+wide <- covwide %>% mutate(x = row_number())
+```
+
+```{r}
+str(wide)
+```
+```{r}
+df_tidy <- wide %>%
+  pivot_longer(cols = ends_with(".coverage"), names_to = "Sample", values_to = "Coverage") %>%
+  separate(Sample, into = c("Sample", "Metric"), sep = "\\.") %>%
+  spread(Metric, Coverage)
+```
+
+
+
+```{r}
+fam1 <- df_real_tidy %>%
+  group_by(ID,family) %>%
+  summarize(average_coverage = mean(coverage, na.rm = TRUE))
+```
+
+
+```{r}
+df_real_tidy <- df_tidy %>%
+  mutate(family = substr(Sample, 1, 4))
+```
+
+```{r}
+fam <- pivot_wider(fam1, names_from = family, values_from = average_coverage)
+```
+
+
+```{r}
+fam
+```
+
+
+very close here
+
+
+
+```{r}
+famfact <- fam %>%
+  rowwise() %>%
+  mutate(factor = abs((mean(c(F052, F142)) / mean(c(F053, F143))))) %>%
+  mutate(exp = mean(c(F052, F142, F053, F143)))
+```
+
+```{r}
+famfact %>%
+  filter(exp > 20) %>%
+  filter(factor > 4)
+```
+
+
+
+```{r}
+ggplot(df_tidy, aes(x = ID, y = coverage, color = Sample)) +
+  geom_point() +
+  labs(x = "Gene", y = "Coverage", color = "sample") +
+  theme_minimal() +
+  theme(
+    plot.background = element_rect(fill = "white", color = NA),
+    plot.margin = margin(10, 3, 10, 3, "pt")  # Adjust the left and right margins
+  )
+```
+
+```{r}
+library(stringr)
+```
+
+```{r}
+df_tidy %>%
+    filter(str_detect(Sample, "^F052")) %>%
+ggplot(aes(x = ID, y = coverage, color = Sample)) +
+  geom_point() +
+  labs(x = "Gene", y = "Coverage", color = "sample") +
+  theme_minimal()
+```
+
+```{r}
+df_tidy %>%
+    filter(str_detect(Sample, "^F053")) %>%
+ggplot(aes(x = ID, y = coverage, color = Sample)) +
+  geom_point() +
+  labs(x = "Gene", y = "Coverage", color = "sample") +
+  theme_minimal()
+```
+
+
+```{r}
+wide %>%
+  ggplot(aes(x = x)) +
+  geom_point(y = F052n01.coverage, color = "gray") 
+```
+
+ggplot(mapping = aes(x = CIRC, y = HEIGHT)) +
+  geom_point(data = trees, color = "gray") +
+  geom_point(data = acacia, color = "red") +
+  labs(x = "Circumference [cm]", y = "Height [m]")
+
+```{r}
+# Create the ggplot plot and add the points
+df %>%
+ filter(Filename == "F052n01.coverage") %>%
+ggplot(aes(x = ID, y = Value)) +
+  geom_point()
+
+```
+
+
