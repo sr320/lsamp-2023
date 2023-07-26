@@ -2,7 +2,9 @@
 title: "AEV-graphs"
 author: "Noah Krebs"
 date: "2023-07-25"
-output: html_document
+output:
+  word_document: default
+  html_document: default
 ---
 ```{r}
 library(tidyverse)
