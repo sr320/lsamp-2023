@@ -1,0 +1,280 @@
+---
+title: "10-cnv-pipeline"
+author: Steven Roberts
+date: "`r format(Sys.time(), '%d %B, %Y')`" 
+output: 
+  # github_document:
+  #   toc: true
+  #   toc_depth: 3
+  #   number_sections: true
+  #   html_preview: true
+  html_document:
+    theme: readable
+    highlight: zenburn
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: show
+    code_download: true
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(tidyverse)
+library(kableExtra)
+library(DESeq2)
+library(pheatmap)
+library(RColorBrewer)
+library(data.table)
+library(DT)
+library(formattable)
+library(Biostrings)
+library(spaa)
+knitr::opts_chunk$set(
+  echo = TRUE,         # Display code chunks
+  eval = FALSE,         # Evaluate code chunks
+  warning = FALSE,     # Hide warnings
+  message = FALSE,     # Hide messages
+  fig.width = 6,       # Set plot width in inches
+  fig.height = 4,      # Set plot height in inches
+  fig.align = "center" # Align plots to the center
+)
+```
+
+
+```{r}
+library(tidyverse)
+```
+
+Getting some sample coverage data starting with sorted bams...
+
+# Started with a little mox
+
+```
+
+# the following were all done at terminal
+#grab genome
+#curl -O https://gannet.fish.washington.edu/panopea/Cg-roslin/cgigas_uk_roslin_v1_genomic-mito.fa
+
+# sequence reads
+# wget -r \
+# --no-directories --no-parent \
+# -P . \
+# -A "F*gz" \
+# http://owl.fish.washington.edu/nightingales/C_gigas/
+# 
+# 
+# # index genome
+# 
+# /gscratch/srlab/programs/bowtie2-2.4.2-linux-x86_64/bowtie2-build \
+# cgigas_uk_roslin_v1_genomic-mito.fa \
+# cgigas_uk_roslin_v1_genomic-mito.index
+# 
+# 
+# 
+# find *_R1_001_fastq.gz | xargs basename -s _R1_001_fastq.gz \
+# | xargs -I{} /Applications/bioinfo/bowtie2-2.2.4/bowtie2 \
+# -x cgigas_uk_roslin_v1_genomic-mito.index \
+# -1 {}_R1_001_fastq.gz \
+# -2 {}_R2_001_fastq.gz \
+# -p 40 \
+# -S {}.sam
+# 
+
+# RAN THIS ON MOX
+# find *.bam | \
+# xargs basename -s .bam | \
+# xargs -I{} /gscratch/srlab/programs/samtools-1.10/samtools \
+# sort --threads 28 {}.bam \
+# -o {}.sorted.bam
+
+
+# find *sorted.bam | \
+# xargs basename -s .sorted.bam | \
+# xargs -I{} /gscratch/srlab/programs/bedtools-2.27.1/bin/bedtools genomecov \
+# -ibam {}.sorted.bam -bg > {}.bedgraph
+```
+
+
+# Bedgraphs and the tidyverse
+
+Converting gene gff to bed
+
+```{bash}
+awk 'OFS="\t" {print $1,$4-1,$5,$9,$6,$7}' ../data/cgigas_uk_roslin_v1_gene.gff > ../output/cgigas_uk_roslin_v1_gene.bed
+
+head ../output/cgigas_uk_roslin_v1_gene.bed
+
+```
+
+Cleaning up the bed
+
+```{bash}
+awk 'BEGIN {OFS=FS="\t"} {sub(/:.*/, "", $4); print}' ../output/cgigas_uk_roslin_v1_gene.bed | sed 's/;Dbxref=GeneID//g' > ../output/cgigas_uk_roslin_v1_gene2.bed
+
+```
+
+
+```{r engine='bash', eval=TRUE}
+head ../output/cgigas_uk_roslin_v1_gene2.bed
+```
+
+
+
+Getting coverage data for all bedgraphs over genes
+
+```{bash}
+
+for f in ../data/*bedgraph
+do
+    base=$(basename "$f" .bedgraph)
+    /home/shared/bedtools2/bin/bedtools coverage -counts -a ../output/cgigas_uk_roslin_v1_gene2.bed -b "$f" > "../output/$base.coverage.txt"
+done
+```
+
+```{r engine='bash', eval=TRUE}
+ls ../output/F*.coverage.txt
+```
+
+```{r engine='bash', eval=TRUE}
+head ../output/F*.coverage.txt | head
+```
+
+# Reading in all files
+
+```{r eval=TRUE, cache=TRUE}
+# Set the directory path where your files are located
+directory_path <- "../output/"
+
+# Define the regular expression pattern to match your files
+file_pattern <- "F.*coverage\\.txt"
+
+# Get the list of files that match the pattern in the specified directory
+file_list <- list.files(path = directory_path, pattern = file_pattern, full.names = TRUE)
+
+# Function to read and merge files
+merge_files <- function(file_paths) {
+  # Initialize an empty data frame
+  merged_table <- data.frame()
+
+  # Loop through each file and merge it with the existing data
+  for (file_path in file_paths) {
+    # Read the file into a data frame
+    table <- read.table(file_path, header = FALSE, sep = "\t")
+    
+    # Assign column names to the data frame
+    colnames(table) <- c("Chr", "Start", "End", "ID", "Dot", "Strand", "Value")
+    
+    # Get the base filename without the extension
+    base_filename <- tools::file_path_sans_ext(basename(file_path))
+
+    # Add a new column with the base filename to the data frame
+    table$Filename <- base_filename
+
+    # Merge the data frame with the existing data
+    merged_table <- rbind(merged_table, table)
+  }
+
+  # Return the final merged data frame
+  return(merged_table)
+}
+
+# Call the function to merge all the files
+merged_coverage <- merge_files(file_list)
+
+# Print the merged data frame
+head(merged_coverage)
+
+```
+```{r}
+save(merged_coverage, file = "../output/merged_coverage.RData")
+```
+
+```{r eval=TRUE}
+datatable(
+merged_coverage %>%
+  mutate(gene = str_extract(ID, "LOC\\d+")) %>%
+  mutate(sample = str_extract(Filename, "^[^.]+")) %>%
+  select(gene, sample, value = Value) %>%
+  mutate(family = substr(sample, 1, 4))
+)
+```
+
+
+
+```{r eval=TRUE}
+datatable(
+merged_coverage %>%
+  mutate(gene = str_extract(ID, "LOC\\d+")) %>%
+  mutate(sample = str_extract(Filename, "^[^.]+")) %>%
+  select(gene, sample, value = Value) %>%
+  mutate(family = substr(sample, 1, 4)) %>%
+  group_by(gene,family) %>%
+  summarize(average_coverage = mean(value, na.rm = TRUE))
+)
+```
+
+```{r eval=TRUE}
+datatable(
+merged_coverage %>%
+  mutate(gene = str_extract(ID, "LOC\\d+")) %>%
+  mutate(sample = str_extract(Filename, "^[^.]+")) %>%
+  select(gene, sample, value = Value) %>%
+  mutate(family = substr(sample, 1, 4)) %>%
+  group_by(gene,family) %>%
+  summarize(average_coverage = mean(value, na.rm = TRUE)) %>%
+  pivot_wider(names_from = family, values_from = average_coverage)
+)
+```
+
+```{r eval=TRUE}
+datatable(
+familydf <- merged_coverage %>%
+  mutate(gene = str_extract(ID, "LOC\\d+")) %>%
+  mutate(sample = str_extract(Filename, "^[^.]+")) %>%
+  select(gene, sample, value = Value) %>%
+  mutate(family = substr(sample, 1, 4)) %>%
+  group_by(gene,family) %>%
+  summarize(average_coverage = mean(value, na.rm = TRUE)) %>%
+  pivot_wider(names_from = family, values_from = average_coverage)
+)
+```
+
+
+
+# genes with coverage higher triploids
+
+Meaning likely higher gene counts
+
+gene expansion in triploids
+
+
+
+```{r eval=TRUE}
+familydf %>%
+  rowwise() %>%
+  mutate(factor = (mean(c(F052, F142)) / mean(c(F053, F143)))) %>%
+  mutate(f05dif = (log2(F052/F053))) %>%
+  mutate(f14dif = (log2(F142/F143))) %>%
+  mutate(exp = mean(c(F052, F142, F053, F143))) %>%
+  filter(f05dif < -1) %>%
+  filter(f14dif < -1) %>%
+  filter(exp > 50)
+ 
+```
+
+# genes with coverage higher diploids
+
+```{r eval=TRUE}
+familydf %>%
+  rowwise() %>%
+  mutate(factor = (mean(c(F052, F142)) / mean(c(F053, F143)))) %>%
+  mutate(f05dif = (log2(F052/F053))) %>%
+  mutate(f14dif = (log2(F142/F143))) %>%
+  mutate(exp = mean(c(F052, F142, F053, F143))) %>%
+  filter(f05dif > 1) %>%
+  filter(f14dif > 1) %>%
+  filter(exp > 50)
+ 
+```
+

@@ -1,1 +1,4 @@
 *.sam
+*depth.txt
+*depths.txt
+merged_coverage.RData
