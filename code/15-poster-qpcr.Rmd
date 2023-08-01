@@ -37,79 +37,133 @@ ggsave("../Images/defensin.png", width = 8, height = 6, dpi = 300)
 
 ```
 
+```{r}
+qpcr %>%
+  filter(Target == "Cg_ATPsynthase(1385/6)") %>%
+  ggplot(mapping = aes(x = Treatment, y = AEV)) + 
+  geom_boxplot() +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
+  theme(legend.position = "right" ,
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 14),  # Increase x-axis label font size to 14
+        axis.title.y = element_text(size = 14),  # Increase y-axis label font size to 14
+        plot.title = element_text(hjust = 0.5, size = 16)) +
+  ylab("Arbitrary Expression Value") +
+  ggtitle("ATPsynthase")
 
+# Save the plot as a high-quality PNG
+ggsave("../Images/ATPsynthase.png", width = 8, height = 6, dpi = 300)
+```
 
 ```{r}
 qpcr %>%
-  filter(Target == "Cg_Def(1160/1)") %>%
-ggplot(mapping = aes(x = Treatment, y = AEV)) + 
-  geom_boxplot()  +
-  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
-```
-
-
-
-
-
-
-```{r}
-qpcra %>%
-  filter(Target == "IL-17_internal(256/7)") %>%
-ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
-  geom_boxplot()  +
-  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
-```
-```{r}
-qpcrb %>%
-  filter(Target == "Cg_HSP70(598/9)") %>%
-ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
-  geom_boxplot()  +
-  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
-```
-```{r}
-qpcrb %>%
-  filter(Target == "Cg_HSP90(1532/3)") %>%
-ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
-  geom_boxplot()  +
-  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
-```
-```{r}
-qpcrb %>%
-  filter(Target == "Cg_VIPERIN(1828/9)") %>%
-ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
-  geom_boxplot()  +
-  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
-```
-```{r}
-qpcrc %>%
-  filter(Target == "Cg_18s(1408/9)") %>%
-ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
-  geom_boxplot()  +
-  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
-```
-```{r}
-qpcrc %>%
-  filter(Target == "Cg_ATPsynthase(1385/6)") %>%
-ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
-  geom_boxplot()  +
-  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
-```
-```{r}
-qpcrc %>%
   filter(Target == "Cg_citratesynthase(1383/4)") %>%
-ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
-  geom_boxplot()  +
-  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+  ggplot(mapping = aes(x = Treatment, y = AEV)) + 
+  geom_boxplot() +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
+  theme(legend.position = "right" ,
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 14),  # Increase x-axis label font size to 14
+        axis.title.y = element_text(size = 14),  # Increase y-axis label font size to 14
+        plot.title = element_text(hjust = 0.5, size = 16)) +
+  ylab("Arbitrary Expression Value") +
+  ggtitle("Citratesynthase")
+
+# Save the plot as a high-quality PNG
+ggsave("../Images/Citratesynthase.png", width = 8, height = 6, dpi = 300)
 ```
 ```{r}
-qpcrc %>%
+qpcr %>%
   filter(Target == "Cg_GAPDH(1172/3)") %>%
-ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
-  geom_boxplot()  +
-  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+  ggplot(mapping = aes(x = Treatment, y = AEV)) + 
+  geom_boxplot() +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
+  theme(legend.position = "right" ,
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 14),  # Increase x-axis label font size to 14
+        axis.title.y = element_text(size = 14),  # Increase y-axis label font size to 14
+        plot.title = element_text(hjust = 0.5, size = 16)) +
+  ylab("Arbitrary Expression Value") +
+  ggtitle("GADPH")
+
+# Save the plot as a high-quality PNG
+ggsave("../Images/GADPH.png", width = 8, height = 6, dpi = 300)
+```
+```{r}
+qpcr %>%
+  filter(Target == "IL-17_internal(256/7)") %>%
+  ggplot(mapping = aes(x = Treatment, y = AEV)) + 
+  geom_boxplot() +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
+  theme(legend.position = "right" ,
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 14),  # Increase x-axis label font size to 14
+        axis.title.y = element_text(size = 14),  # Increase y-axis label font size to 14
+        plot.title = element_text(hjust = 0.5, size = 16)) +
+  ylab("Arbitrary Expression Value") +
+  ggtitle("Interleukin-17")
+
+# Save the plot as a high-quality PNG
+ggsave("../Images/IL-17.png", width = 8, height = 6, dpi = 300)
+```
+```{r}
+qpcr %>%
+  filter(Target == "Cg_HSP70(598/9)") %>%
+  ggplot(mapping = aes(x = Treatment, y = AEV)) + 
+  geom_boxplot() +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
+  theme(legend.position = "right" ,
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 14),  # Increase x-axis label font size to 14
+        axis.title.y = element_text(size = 14),  # Increase y-axis label font size to 14
+        plot.title = element_text(hjust = 0.5, size = 16)) +
+  ylab("Arbitrary Expression Value") +
+  ggtitle("HSP70")
+
+# Save the plot as a high-quality PNG
+ggsave("../Images/HSP70.png", width = 8, height = 6, dpi = 300)
 ```
 
+```{r}
+qpcr %>%
+  filter(Target == "Cg_HSP90(1532/3)") %>%
+  ggplot(mapping = aes(x = Treatment, y = AEV)) + 
+  geom_boxplot() +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
+  theme(legend.position = "right" ,
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 14),  # Increase x-axis label font size to 14
+        axis.title.y = element_text(size = 14),  # Increase y-axis label font size to 14
+        plot.title = element_text(hjust = 0.5, size = 16)) +
+  ylab("Arbitrary Expression Value") +
+  ggtitle("HSP90")
+
+# Save the plot as a high-quality PNG
+ggsave("../Images/HSP90.png", width = 8, height = 6, dpi = 300)
+```
 
 ```{r}
+qpcr %>%
+  filter(Target == "Cg_VIPERIN(1828/9)") %>%
+  ggplot(mapping = aes(x = Treatment, y = AEV)) + 
+  geom_boxplot() +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
+  theme(legend.position = "right" ,
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 14),  # Increase x-axis label font size to 14
+        axis.title.y = element_text(size = 14),  # Increase y-axis label font size to 14
+        plot.title = element_text(hjust = 0.5, size = 16)) +
+  ylab("Arbitrary Expression Value") +
+  ggtitle("VIPERIN")
+
+# Save the plot as a high-quality PNG
+ggsave("../Images/Viperin.png", width = 8, height = 6, dpi = 300)
 ```
 
