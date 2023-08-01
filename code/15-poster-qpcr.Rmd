@@ -8,6 +8,7 @@ output:
 ---
 ```{r}
 library(tidyverse)
+library(stats)
 ```
 
 ```{r}
@@ -50,7 +51,7 @@ qpcr %>%
         axis.title.y = element_text(size = 14),  # Increase y-axis label font size to 14
         plot.title = element_text(hjust = 0.5, size = 16)) +
   ylab("Arbitrary Expression Value") +
-  ggtitle("ATPsynthase")
+  ggtitle("ATP Synthase")
 
 # Save the plot as a high-quality PNG
 ggsave("../Images/ATPsynthase.png", width = 8, height = 6, dpi = 300)
@@ -69,7 +70,7 @@ qpcr %>%
         axis.title.y = element_text(size = 14),  # Increase y-axis label font size to 14
         plot.title = element_text(hjust = 0.5, size = 16)) +
   ylab("Arbitrary Expression Value") +
-  ggtitle("Citratesynthase")
+  ggtitle("Citrate Synthase")
 
 # Save the plot as a high-quality PNG
 ggsave("../Images/Citratesynthase.png", width = 8, height = 6, dpi = 300)
@@ -165,5 +166,27 @@ qpcr %>%
 
 # Save the plot as a high-quality PNG
 ggsave("../Images/Viperin.png", width = 8, height = 6, dpi = 300)
+```
+```{r}
+qpcr_filtered <- qpcr %>%
+  filter(Target == "Cg_citratesynthase(1383/4)")
+
+# Run ANOVA for each group separately and store the results in a list
+group1_anova <- qpcr_filtered %>%
+  filter(Treatment == "heat") %>%
+  aov(AEV ~ Treatment, data = .)
+
+group2_anova <- qpcr_filtered %>%
+  filter(Treatment == "heat::mech") %>%
+  aov(AEV ~ Treatment, data = .)
+
+group3_anova <- qpcr_filtered %>%
+  filter(Treatment == "mechanical") %>%
+  aov(AEV ~ Treatment, data = .)
+
+# View the ANOVA summaries for each group
+summary(group1_anova)
+summary(group2_anova)
+summary(group3_anova)
 ```
 
