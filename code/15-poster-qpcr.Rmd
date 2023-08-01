@@ -1,29 +1,115 @@
 ---
-title: "poster qpcr"
-output: html_document
-date: "2023-07-31"
+title: "poster QPCR"
+author: "Noah Krebs"
+date: "2023-07-25"
+output:
+  github_document: default
+  html_document: default
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r}
+library(tidyverse)
 ```
 
-## R Markdown
+```{r}
+qpcr <- read.csv("../data/qPCR-poster.csv", header = TRUE)
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
+```{r}
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+qpcr %>%
+  filter(Target == "Cg_Def(1160/1)") %>%
+  ggplot(mapping = aes(x = Treatment, y = AEV)) + 
+  geom_boxplot() +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
+  theme(legend.position = "right" ,
+        axis.text.x = element_text(size = 12),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 14),  # Increase x-axis label font size to 14
+        axis.title.y = element_text(size = 14),  # Increase y-axis label font size to 14
+        plot.title = element_text(hjust = 0.5, size = 16)) +
+  ylab("Arbitrary Expression Value") +
+  ggtitle("Defensin")
+
+# Save the plot as a high-quality PNG
+ggsave("../Images/defensin.png", width = 8, height = 6, dpi = 300)
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+```{r}
+qpcr %>%
+  filter(Target == "Cg_Def(1160/1)") %>%
+ggplot(mapping = aes(x = Treatment, y = AEV)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+
+
+
+
+
+
+```{r}
+qpcra %>%
+  filter(Target == "IL-17_internal(256/7)") %>%
+ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+```{r}
+qpcrb %>%
+  filter(Target == "Cg_HSP70(598/9)") %>%
+ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+```{r}
+qpcrb %>%
+  filter(Target == "Cg_HSP90(1532/3)") %>%
+ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+```{r}
+qpcrb %>%
+  filter(Target == "Cg_VIPERIN(1828/9)") %>%
+ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+```{r}
+qpcrc %>%
+  filter(Target == "Cg_18s(1408/9)") %>%
+ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+```{r}
+qpcrc %>%
+  filter(Target == "Cg_ATPsynthase(1385/6)") %>%
+ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+```{r}
+qpcrc %>%
+  filter(Target == "Cg_citratesynthase(1383/4)") %>%
+ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+```{r}
+qpcrc %>%
+  filter(Target == "Cg_GAPDH(1172/3)") %>%
+ggplot(mapping = aes(x = Subgroup, y = AEV)) + 
+  geom_boxplot()  +
+  geom_jitter(aes(color = History), width = 0.1, alpha = 0.7)
+```
+
+
+```{r}
+```
+
