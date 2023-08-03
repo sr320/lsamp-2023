@@ -168,8 +168,7 @@ qpcr %>%
 ggsave("../Images/Viperin.png", width = 8, height = 6, dpi = 300)
 ```
 ```{r}
-qpcr_filtered <- qpcr %>%
-  filter(Target == "Cg_citratesynthase(1383/4)")
+
 
 # Run ANOVA for each group separately and store the results in a list
 group1_anova <- qpcr_filtered %>%
@@ -188,5 +187,9 @@ group3_anova <- qpcr_filtered %>%
 summary(group1_anova)
 summary(group2_anova)
 summary(group3_anova)
+```
+```{r}
+result_anova <- aov(AEV ~ History, data = qpcr)
+summary(result_anova)
 ```
 
