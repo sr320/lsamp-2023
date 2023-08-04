@@ -23,6 +23,8 @@ qpcr %>%
   filter(Target == "Cg_Def(1160/1)") %>%
   ggplot(mapping = aes(x = Treatment, y = AEV)) + 
   geom_boxplot() +
+  geom_boxplot(aes(fill = Treatment)) +
+  scale_fill_manual(values = c("control" = "blue", "heat" = "red", "heat::mech" = "green", "mechanical" = "orange")) +
   geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
   theme(legend.position = "right" ,
         axis.text.x = element_text(size = 12),
@@ -43,6 +45,8 @@ qpcr %>%
   filter(Target == "Cg_ATPsynthase(1385/6)") %>%
   ggplot(mapping = aes(x = Treatment, y = AEV)) + 
   geom_boxplot() +
+  geom_boxplot(aes(fill = Treatment)) +
+  scale_fill_manual(values = c("control" = "blue", "heat" = "red", "heat::mech" = "green", "mechanical" = "orange")) +
   geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
   theme(legend.position = "right" ,
         axis.text.x = element_text(size = 12),
@@ -62,6 +66,8 @@ qpcr %>%
   filter(Target == "Cg_citratesynthase(1383/4)") %>%
   ggplot(mapping = aes(x = Treatment, y = AEV)) + 
   geom_boxplot() +
+  geom_boxplot(aes(fill = Treatment)) +
+  scale_fill_manual(values = c("control" = "blue", "heat" = "red", "heat::mech" = "green", "mechanical" = "orange")) +
   geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
   theme(legend.position = "right" ,
         axis.text.x = element_text(size = 12),
@@ -80,6 +86,8 @@ qpcr %>%
   filter(Target == "Cg_GAPDH(1172/3)") %>%
   ggplot(mapping = aes(x = Treatment, y = AEV)) + 
   geom_boxplot() +
+  geom_boxplot(aes(fill = Treatment)) +
+  scale_fill_manual(values = c("control" = "blue", "heat" = "red", "heat::mech" = "green", "mechanical" = "orange")) +
   geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
   theme(legend.position = "right" ,
         axis.text.x = element_text(size = 12),
@@ -98,6 +106,8 @@ qpcr %>%
   filter(Target == "IL-17_internal(256/7)") %>%
   ggplot(mapping = aes(x = Treatment, y = AEV)) + 
   geom_boxplot() +
+  geom_boxplot(aes(fill = Treatment)) +
+  scale_fill_manual(values = c("control" = "blue", "heat" = "red", "heat::mech" = "green", "mechanical" = "orange")) +
   geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
   theme(legend.position = "right" ,
         axis.text.x = element_text(size = 12),
@@ -116,6 +126,8 @@ qpcr %>%
   filter(Target == "Cg_HSP70(598/9)") %>%
   ggplot(mapping = aes(x = Treatment, y = AEV)) + 
   geom_boxplot() +
+  geom_boxplot(aes(fill = Treatment)) +
+  scale_fill_manual(values = c("control" = "blue", "heat" = "red", "heat::mech" = "green", "mechanical" = "orange")) +
   geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
   theme(legend.position = "right" ,
         axis.text.x = element_text(size = 12),
@@ -135,6 +147,8 @@ qpcr %>%
   filter(Target == "Cg_HSP90(1532/3)") %>%
   ggplot(mapping = aes(x = Treatment, y = AEV)) + 
   geom_boxplot() +
+  geom_boxplot(aes(fill = Treatment)) +
+  scale_fill_manual(values = c("control" = "blue", "heat" = "red", "heat::mech" = "green", "mechanical" = "orange")) +
   geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
   theme(legend.position = "right" ,
         axis.text.x = element_text(size = 12),
@@ -154,6 +168,8 @@ qpcr %>%
   filter(Target == "Cg_VIPERIN(1828/9)") %>%
   ggplot(mapping = aes(x = Treatment, y = AEV)) + 
   geom_boxplot() +
+  geom_boxplot(aes(fill = Treatment)) +
+  scale_fill_manual(values = c("control" = "blue", "heat" = "red", "heat::mech" = "green", "mechanical" = "orange")) +
   geom_jitter(aes(color = History), width = 0.1, alpha = 0.7, size = 3) +
   theme(legend.position = "right" ,
         axis.text.x = element_text(size = 12),
